@@ -1,0 +1,50 @@
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 16px; }
+.row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; margin-top: 16px; }
+.bottom { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; margin-top: 16px; }
+.card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+.kpi { display: flex; align-items: center; justify-content: space-between; }
+.kpiValue { font-size: 24px; font-weight: 800; }
+
+/* KPI icon wrapper (circle bg) */
+.kpiIconWrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.kpiEmployees { background: #f2cef6; color: #d19fd3; }   
+.kpiJobs { background: #f0f9ce; color: #dae281; }        
+.kpiLeaves { background: #eac48f; color: #ca8a04; }      
+.kpiApplications { background: #baf0cd; color: #16a34a; }
+
+
+.kpiTrend {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.kpiTrendUp { color: #16a34a; }   
+.kpiTrendDown { color: #dc2626; }
+.kpiTrendWarn { color: #ca8a04; } 
+
+
+.kpiHeadingEmployees {
+  color: #625488;
+}
+
+.kpiHeadingJobs {
+  color: #625488; 
+}
+
+.kpiHeadingLeaves {
+  color: #625488; 
+}
+
+.kpiHeadingApplications {
+  color: #625488; 
+}

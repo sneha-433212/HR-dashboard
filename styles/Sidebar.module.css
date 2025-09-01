@@ -1,0 +1,81 @@
+
+.sidebar {
+  background: #d2e7f2;
+  padding: 16px 12px;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;       
+  position: sticky;    
+  top: 0;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  font-size: 18px;
+  padding: 8px 12px;
+}
+
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #334155;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.item:hover,
+.active {
+  background: #a8d1e9;
+  color: #010310;
+}
+
+
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #664868;
+  text-transform: uppercase;
+  padding: 12px 12px 4px;
+}
+
+
+.userFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  background:#d2e7f2;
+  margin-top: auto;   
+}
+
+.userFooter div {
+  display: flex;
+  flex-direction: column;
+}
+
+.userFooter .name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.userFooter .email {
+  font-size: 12px;
+  color: #64748b;
+}

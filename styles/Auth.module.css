@@ -1,0 +1,129 @@
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: #dcdef2;
+}
+
+.userOptionsContainer {
+  position: relative;
+  width: 80%;
+}
+
+.userOptionsText {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.85);
+  border-radius: 3px;
+  color: #fff;
+}
+
+.userOptionsRegistered,
+.userOptionsUnregistered {
+  width: 50%;
+  padding: 75px 45px;
+}
+
+.userRegisteredTitle,
+.userUnregisteredTitle {
+  margin-bottom: 15px;
+  font-size: 1.66rem;
+}
+
+.userUnregisteredText,
+.userRegisteredText {
+  font-size: 0.9rem;
+}
+
+.userRegisteredLogin,
+.userUnregisteredSignup {
+  margin-top: 30px;
+  border: 1px solid #322727;
+  border-radius: 3px;
+  padding: 10px 30px;
+  color: #191818;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.userUnregisteredSignup {
+  margin-top: 30px;
+  border: 1px solid #322727;
+  border-radius: 3px;
+  padding: 10px 30px;
+  color: #1f1e1e;  
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.userUnregisteredSignup:hover {
+  background: #716863;
+  color: #fff;
+}
+
+.userRegisteredLogin:hover,
+.userUnregisteredSignup:hover {
+  background: #ccc;
+  color: #222;
+}
+
+.userOptionsForms {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  width: calc(50% - 30px);
+  min-height: 420px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
+  transform: translate3d(100%, -50%, 0);
+  transition: transform 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.bounceLeft {
+  animation: bounceLeft 1s forwards;
+}
+.bounceRight {
+  animation: bounceRight 1s forwards;
+}
+
+@keyframes bounceLeft {
+  0% { transform: translate3d(100%, -50%, 0); }
+  50% { transform: translate3d(-30px, -50%, 0); }
+  100% { transform: translate3d(0, -50%, 0); }
+}
+
+@keyframes bounceRight {
+  0% { transform: translate3d(0, -50%, 0); }
+  50% { transform: translate3d(calc(100% + 30px), -50%, 0); }
+  100% { transform: translate3d(100%, -50%, 0); }
+}
+
+.forms {
+  padding: 40px;
+}
+
+.formsTitle {
+  margin-bottom: 32px !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #6b21a8 !important;
+  line-height: 1.4;
+  display: block; 
+}
+
+
+.formsField {
+  margin-bottom: 16px;
+}
+
+.formsButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}

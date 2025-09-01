@@ -1,0 +1,70 @@
+
+
+
+.toolbar { 
+  display: flex; 
+  gap: 10px; 
+  align-items: center; 
+  margin-bottom: 12px; 
+}
+
+.status { 
+  padding: 4px 10px; 
+  border-radius: 999px; 
+  font-size: 12px; 
+  font-weight: 700; 
+}
+
+.statusActive { 
+  background: #e8f5e9; 
+  color: #1b5e20; 
+}
+
+.statusLeave { 
+  background: #fff8e1; 
+  color: #8d6e00; 
+}
+
+.statusPending { 
+  background: #fff7ed; 
+  color: #9a3412; 
+}
+
+.statusApproved { 
+  background: #e8f5e9; 
+  color: #1b5e20; 
+}
+
+.statusRejected { 
+  background: #ffebee; 
+  color: #b71c1c; 
+}
+
+
+.tag { 
+  padding: 4px 10px; 
+  border-radius: 999px; 
+  font-size: 12px; 
+  font-weight: 700; 
+  display: inline-block; 
+}
+
+.tagAnnual {  
+  background: #e8f5e9; 
+  color: #1b5e20; 
+}
+
+.tagSick {    
+  background: #ffebee; 
+  color: #b71c1c; 
+}
+
+.tagCasual {  
+  background: #e0f2fe; 
+  color: #075985; 
+}
+
+.tagPersonal { 
+  background: #f3e8ff; 
+  color: #6b21a8; 
+}
