@@ -103,7 +103,7 @@ export default function Navbar() {
         style={{
           fontWeight: 700,
           fontSize: "1.1rem",
-          color: "#826ca3ff",
+          color: "#726587ff",
         }}
       >
         {user ? "Welcome to Dashboard" : "Dashboard"}
@@ -254,13 +254,13 @@ export default function Navbar() {
             onClick={() => router.push("/login")}
             sx={{
               backgroundColor: "#fff",
-              borderColor: "#6b21a8",
+              borderColor: "#f2f2e9ff",
               color: "#4c1d95",
               fontWeight: 600,
               textTransform: "none",
               "&:hover": {
-                backgroundColor: "#bdb0ccff",
-                borderColor: "#6b21a8",
+                backgroundColor: "#e7d9eaff",
+                borderColor: "#8c7b99ff",
               },
             }}
           >

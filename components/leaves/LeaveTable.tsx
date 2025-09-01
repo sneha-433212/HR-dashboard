@@ -54,13 +54,13 @@ export default function LeaveTable({
           <Table sx={{ fontSize: 14 }}> 
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>Employee</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>Leave Type</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>Start Date</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>End Date</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>Days</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }}>Status</TableCell>
-                <TableCell sx={{ fontSize: 14, fontWeight: 600 }} align="right">Actions</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>Employee</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>Leave Type</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>Start Date</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>End Date</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>Days</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }}>Status</TableCell>
+                <TableCell sx={{ fontSize: 14, fontWeight: 500 }} align="right">Actions</TableCell>
               </TableRow>
             </TableHead>
 
@@ -157,7 +157,7 @@ export default function LeaveTable({
                                   border: "none",
                                   color: "green",
                                   backgroundColor: "rgba(0,128,0,0.08)",
-                                  fontSize: 13,
+                                  fontSize: 11,
                                   px: 1.8,
                                   py: 0.5,
                                 }}
@@ -172,8 +172,8 @@ export default function LeaveTable({
                                 sx={{
                                   border: "none",
                                   color: "red",
-                                  backgroundColor: "rgba(0,41, 37, 37, 1)",
-                                  fontSize: 13,
+                                  backgroundColor: "rgba(255,0,0,0.08)",
+                                  fontSize: 11,
                                   px: 1.8,
                                   py: 0.5,
                                 }}

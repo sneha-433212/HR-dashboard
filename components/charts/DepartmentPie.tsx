@@ -33,7 +33,7 @@ export default function DepartmentPie() {
               <Legend
                 formatter={(value) => {
                   const customColors: Record<string, string> = {
-                    Engineering: "#362c29ff",
+                    Engineering: "#453d3aff",
                     Finance: "#212622ff",
                     HR: "#1e2022ff",
                     Marketing: "#241f21ff",

@@ -17,9 +17,9 @@
 
 
 .kpiEmployees { background: #f2cef6; color: #d19fd3; }   
-.kpiJobs { background: #f0f9ce; color: #dae281; }        
-.kpiLeaves { background: #eac48f; color: #ca8a04; }      
-.kpiApplications { background: #baf0cd; color: #16a34a; }
+.kpiJobs { background: #f0f9ce; color: #c9d074; }        
+.kpiLeaves { background: #b1eeef; color: #729cc1; }      
+.kpiApplications { background: #b5f4e0; color: #2fb661; }
 
 
 .kpiTrend {
@@ -28,23 +28,23 @@
   margin-top: 4px;
 }
 
-.kpiTrendUp { color: #16a34a; }   
-.kpiTrendDown { color: #dc2626; }
-.kpiTrendWarn { color: #ca8a04; } 
+.kpiTrendUp { color: #2ca156; }   
+.kpiTrendDown { color: #ac1515; }
+.kpiTrendWarn { color: #d69406; } 
 
 
 .kpiHeadingEmployees {
-  color: #625488;
+  color: #76689c;
 }
 
 .kpiHeadingJobs {
-  color: #625488; 
+  color: #76689c; 
 }
 
 .kpiHeadingLeaves {
-  color: #625488; 
+  color: #76689c; 
 }
 
 .kpiHeadingApplications {
-  color: #625488; 
+  color: #76689c; 
 }

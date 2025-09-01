@@ -2,7 +2,7 @@
 export type LeaveStatus = "Pending" | "Approved" | "Rejected";
 
 export interface Leave {
-  id: string;
+   id: string | number | any;
   employee_id: string;
   leave_type: "Casual" | "Sick" | "Annual" | "Personal";
   start_date: string;

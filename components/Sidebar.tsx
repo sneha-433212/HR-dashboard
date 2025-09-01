@@ -54,7 +54,7 @@ export default function Sidebar() {
             fontSize: "20px",
             color: "#2d517cff",
             marginLeft: "4px",
-            textShadow: "1px 1px 2px rgba(116, 100, 100, 0.2)",
+            textShadow: "1px 1px 2px rgba(161, 146, 146, 0.2)",
           }}
         >
           HRMS

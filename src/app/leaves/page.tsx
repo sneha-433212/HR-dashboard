@@ -21,12 +21,12 @@ export default function LeavesPage() {
                 variant="contained"
                 onClick={() => setOpen(true)}
                 sx={{
-                  backgroundColor: "#e3ddaaff",
-                  color: "#2e2929ff",
+                  backgroundColor:"#8597d0ff",
+                  color: "#fbf8f1ff",
                   fontWeight: 500,
                   "&:hover": {
-                    backgroundColor: "#cbc16eff",
-                    color: "#2a2626ff",
+                    backgroundColor: "#586695ff",
+                    color: "#ffffff",
                   },
                 }}
               >
