@@ -1,7 +1,6 @@
-// app/page.tsx
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";  
+import { useRouter } from "next/navigation";
 import KPIStats from "../../components/KPIStats";
 import DepartmentPie from "../../components/charts/DepartmentPie";
 import WeeklyActivityLine from "../../components/charts/WeeklyActivityLine";
@@ -22,8 +21,8 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import SettingsIcon from "@mui/icons-material/Settings";
 import EventNoteIcon from "@mui/icons-material/EventNote";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Link from "next/link";
 
 import { useEmployees } from "../../hooks/useEmployees";
@@ -54,7 +53,7 @@ export default function DashboardPage() {
   const [openAdd, setOpenAdd] = useState(false);
   const [openJobForm, setOpenJobForm] = useState(false);
 
-  const user = useAuthUser(); 
+  const user = useAuthUser();
   const router = useRouter();
 
 
@@ -100,13 +99,13 @@ export default function DashboardPage() {
       </div>
 
       <div className={styles.bottom}>
-      
+
         <Card className={styles.card}>
           <CardContent>
             <Stack direction="row" justifyContent="space-between" alignItems="center" mb={1}>
               <Typography fontWeight={700}>Recent Employee Activity</Typography>
               <Link
-                href={user ? "/employees" : "/login"}  
+                href={user ? "/employees" : "/login"}
                 style={{
                   textDecoration: "none",
                   fontSize: 13,
@@ -141,24 +140,36 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-       
-        {/* <Card className={styles.card}>
+        <Card className={styles.card}>
           <CardContent>
             <Typography fontWeight={700} mb={2}>Quick Actions</Typography>
             <Stack spacing={2} sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.5 }}>
+
               <Button
                 variant="outlined"
                 onClick={() => (user ? setOpenAdd(true) : router.push("/login"))}
-                sx={{ display: "flex", flexDirection: "column", py: 2, borderStyle: "dashed", borderColor: "#cbd5e1" }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  py: 2,
+                  border: "none !important",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
               >
-                <AddIcon sx={{ color: "#9d6eaaff", fontSize: 28 }} />
+                <AddIcon sx={{ color: "#9d6eaaff", fontSize: 29 }} />
                 <Typography variant="body2" fontWeight={600} mt={1}>Add Employee</Typography>
               </Button>
 
               <Button
                 variant="outlined"
                 onClick={() => (user ? setOpenJobForm(true) : router.push("/login"))}
-                sx={{ display: "flex", flexDirection: "column", py: 2, borderStyle: "dashed", borderColor: "#cbd5e1" }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  py: 2,
+                  border: "none !important",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
               >
                 <WorkOutlineIcon sx={{ color: "#5bb2c0ff", fontSize: 28 }} />
                 <Typography variant="body2" fontWeight={600} mt={1}>Post Job</Typography>
@@ -167,107 +178,36 @@ export default function DashboardPage() {
               <Button
                 variant="outlined"
                 onClick={() => (user ? router.push("/settings") : router.push("/login"))}
-                sx={{ display: "flex", flexDirection: "column", py: 2, borderStyle: "dashed", borderColor: "#cbd5e1" }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  py: 2,
+                  border: "none !important",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
               >
-                <SettingsIcon sx={{ color: "#5bb2c0ff", fontSize: 28 }} />
+                <AccountCircleIcon sx={{ color: "#5bb2c0ff", fontSize: 30 }} />
                 <Typography variant="body2" fontWeight={600} mt={1}>Profile</Typography>
               </Button>
 
               <Button
                 variant="outlined"
                 onClick={() => (user ? router.push("/leaves") : router.push("/login"))}
-                sx={{ display: "flex", flexDirection: "column", py: 2, borderStyle: "dashed", borderColor: "#cbd5e1" }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  py: 2,
+                  border: "none !important",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
               >
                 <EventNoteIcon sx={{ color: "#9d6eaaff", fontSize: 28 }} />
                 <Typography variant="body2" fontWeight={600} mt={1}>Review Leaves</Typography>
               </Button>
             </Stack>
           </CardContent>
-        </Card> */}
-
-
-
-<Card className={styles.card}>
-  <CardContent>
-    <Typography fontWeight={700} mb={2}>Quick Actions</Typography>
-    <Stack spacing={2} sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.5 }}>
-      
-      <Button
-        variant="outlined"
-        onClick={() => (user ? setOpenAdd(true) : router.push("/login"))}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          py: 2,
-          border: "none !important",         
-          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-        }}
-      >
-        <AddIcon sx={{ color: "#9d6eaaff", fontSize: 28 }} />
-        <Typography variant="body2" fontWeight={600} mt={1}>Add Employee</Typography>
-      </Button>
-
-      <Button
-        variant="outlined"
-        onClick={() => (user ? setOpenJobForm(true) : router.push("/login"))}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          py: 2,
-          border: "none !important",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-        }}
-      >
-        <WorkOutlineIcon sx={{ color: "#5bb2c0ff", fontSize: 28 }} />
-        <Typography variant="body2" fontWeight={600} mt={1}>Post Job</Typography>
-      </Button>
-
-      <Button
-        variant="outlined"
-        onClick={() => (user ? router.push("/settings") : router.push("/login"))}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          py: 2,
-          border: "none !important",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-        }}
-      >
-        <SettingsIcon sx={{ color: "#5bb2c0ff", fontSize: 28 }} />
-        <Typography variant="body2" fontWeight={600} mt={1}>Profile</Typography>
-      </Button>
-
-      <Button
-        variant="outlined"
-        onClick={() => (user ? router.push("/leaves") : router.push("/login"))}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          py: 2,
-          border: "none !important",
-          boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-        }}
-      >
-        <EventNoteIcon sx={{ color: "#9d6eaaff", fontSize: 28 }} />
-        <Typography variant="body2" fontWeight={600} mt={1}>Review Leaves</Typography>
-      </Button>
-    </Stack>
-  </CardContent>
-</Card>
-
-
-
-
-
-
-
-
-
-
-        
+        </Card>
       </div>
-
-      
       <AddEmployeeDialog open={openAdd} onClose={() => setOpenAdd(false)} />
       {openJobForm && <JobList forceOpenNewJob={true} onCloseNewJob={() => setOpenJobForm(false)} />}
     </>

@@ -199,7 +199,7 @@ export default function JobList({
               select
               value={status}
               onChange={(e) => setStatus(e.target.value as any)}
-              sx={{ minWidth: 110, height: 34 }} // ✅ smaller
+              sx={{ minWidth: 110, height: 34 }} 
               SelectProps={{ displayEmpty: true }}
             >
               <MenuItem value="">
@@ -221,7 +221,7 @@ export default function JobList({
                 py: 0.8,
                 fontSize: 12.5,
                 fontWeight: 500,
-                backgroundColor: "#8597d0ff",
+                backgroundColor: "#7e90cbff",
                 color: "#fbf8f1ff",
                 "&:hover": {
                   backgroundColor: "#5f6d9bff",

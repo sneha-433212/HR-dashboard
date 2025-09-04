@@ -22,9 +22,9 @@ import {
   Chip,
   InputAdornment,
 } from "@mui/material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../lib/store";
@@ -191,7 +191,7 @@ export default function EmployeeTable() {
                 <TableCell>Join Date</TableCell>
                 <TableCell>Tenure</TableCell>
                 <TableCell>Performance</TableCell>
-                <TableCell align="right">Actions</TableCell>
+                <TableCell align="center">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -246,9 +246,9 @@ export default function EmployeeTable() {
                         size="small"
                         label={e.performance ?? "-"}
                         color={performanceColor(e.performance)}
-                        variant="outlined" // ✅ makes it soft/transparent
+                        variant="outlined" 
                         sx={{
-                          backgroundColor: "rgba(0,0,0,0.04)", // light bg
+                          backgroundColor: "rgba(0,0,0,0.04)", 
                           fontWeight: 600,
                         }}
                       />
@@ -262,7 +262,7 @@ export default function EmployeeTable() {
                         >
                           <Tooltip title="View">
                             <IconButton color="primary">
-                              <VisibilityIcon />
+                               <VisibilityOutlinedIcon sx={{ fontSize: 18 }} />
                             </IconButton>
                           </Tooltip>
                         </Link>
@@ -271,7 +271,7 @@ export default function EmployeeTable() {
                             color="warning"
                             onClick={() => setEditEmp(e)}
                           >
-                            <EditIcon />
+                             <EditOutlinedIcon sx={{ fontSize: 18 }} />
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="Delete">
@@ -279,7 +279,7 @@ export default function EmployeeTable() {
                             color="error"
                             onClick={() => del.mutate(e.id)}
                           >
-                            <DeleteIcon />
+                             <DeleteOutlineIcon sx={{ fontSize: 18 }} />
                           </IconButton>
                         </Tooltip>
                       </Stack>

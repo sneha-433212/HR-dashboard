@@ -1,4 +1,4 @@
-// src/app/leaves/page.tsx
+
 "use client";
 import { useState } from "react";
 import LeaveTable from "../../../components/leaves/LeaveTable";

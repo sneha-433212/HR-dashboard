@@ -3,7 +3,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import { useEmployees } from "../../hooks/useEmployees";
 
-const COLORS = ["#7f39abff", "#5486c6ff", " #1b0d9673", " #e3b2d1ff", "#ebf0c9ff", "#659ff1ff"];
+const COLORS = ["#9151b9ff", "#5486c6ff", " #2618a573", " #e3b2d1ff", "#ebf0c9ff", "#659ff1ff"];
 
 export default function DepartmentPie() {
   const { data: employees = [] } = useEmployees();

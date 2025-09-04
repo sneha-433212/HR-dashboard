@@ -198,7 +198,7 @@ export default function RecentActivity() {
     <Card>
       <CardContent>
         <Stack direction="row" justifyContent="space-between" alignItems="center" mb={1}>
-          <Typography fontWeight={700}>Recent Employee Activity</Typography>
+          <Typography fontWeight={700}>Recent All Activity</Typography>
           <MUILink component={Link} href="/employees" underline="hover" sx={{ fontSize: 13 }}>
             VIEW ALL
           </MUILink>

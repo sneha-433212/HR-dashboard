@@ -1,5 +1,5 @@
 
-export type JobStatus = "Open" | "Closed" | "Paused"; 
+export type JobStatus = "Open" | "Closed" ; 
 
 
 export interface Job {

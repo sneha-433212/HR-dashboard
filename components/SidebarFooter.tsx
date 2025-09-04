@@ -4,6 +4,7 @@ import { Avatar } from "@mui/material";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabaseClient";
 import styles from "../styles/Sidebar.module.css";
+import Link from "next/link";
 
 function stringToColor(string: string) {
   let hash = 0;
@@ -64,8 +65,9 @@ export default function SidebarFooter() {
   const avatarLetter = user?.email?.[0]?.toUpperCase() || "A";
   const avatarColor = stringToColor(user?.email || "Admin");
 
-  return (
-    <div className={styles.userFooter}>
+return (
+  <div className={styles.userFooter}>
+    <Link href="/recruitment/apply">
       <Avatar
         src={avatarUrl || undefined}
         sx={{
@@ -74,16 +76,21 @@ export default function SidebarFooter() {
           mr: 1,
           bgcolor: avatarUrl ? "transparent" : avatarColor,
           color: avatarUrl ? "inherit" : "#fff",
+          cursor: "pointer", 
         }}
       >
         {!avatarUrl && avatarLetter}
       </Avatar>
-      <div>
-        <div style={{ fontWeight: 600 }}>Admin User</div>
-        <div style={{ fontSize: 12, color: "#64748b" }}>
-          {user?.email || "admin@company.com"}
-        </div>
-      </div>
-    </div>
-  );
+    </Link>
+    <div>
+  <div style={{ fontWeight: 600 }}>
+    {user ? "Admin User" : "Guest User"}
+  </div>
+  <div style={{ fontSize: 12, color: "#64748b" }}>
+    {user?.email || "guest@company.com"}
+  </div>
+</div>
+
+  </div>
+);
 }

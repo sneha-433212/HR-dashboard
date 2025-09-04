@@ -61,7 +61,7 @@ export default function SettingsPage() {
       const file = e.target.files[0];
       const filePath = `avatars/${Date.now()}-${file.name}`;
       const { error } = await supabase.storage
-        .from(process.env.NEXT_PUBLIC_SUPABASE_CV_BUCKET as string)
+        .from("cvs")
         .upload(filePath, file, { upsert: true });
 
       if (!error) {
@@ -107,15 +107,18 @@ export default function SettingsPage() {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", padding: "30px" }}>
+    <div style={{ display: "flex", justifyContent: "center", padding: "0", margin: 0 }}>
+
       <Card
-        sx={{
-          width: "100%",
-          maxWidth: "1200px",
-          p: 4,
-          position: "relative",
-        }}
-      >
+  sx={{
+    width: "100%",   
+    maxWidth: "none", 
+    height: "100vh",  
+    p: 4,
+    position: "relative",
+  }}
+>
+
     
       <Button
   variant="contained"
@@ -178,15 +181,15 @@ export default function SettingsPage() {
             </Typography>
           </div>
 
-         {/* ✅ Center all fields nicely in rows */}
+
 <Stack
   spacing={3}
   sx={{
     mt: 3,
-    alignItems: "center", // center whole block
+    alignItems: "center", 
   }}
 >
-  {/* Row 1 */}
+  
   <Stack direction="row" spacing={2} sx={{ width: "100%", maxWidth: 900 }}>
     <TextField
       label="Username"
@@ -208,7 +211,7 @@ export default function SettingsPage() {
     />
   </Stack>
 
-  {/* Row 2 */}
+  
   <Stack direction="row" spacing={2} sx={{ width: "100%", maxWidth: 900 }}>
     <TextField
       label="Password"
@@ -231,7 +234,7 @@ export default function SettingsPage() {
     />
   </Stack>
 
-  {/* Row 3 */}
+  
   <Stack direction="row" spacing={2} sx={{ width: "100%", maxWidth: 900 }}>
     <TextField
       label="Title"
@@ -252,32 +255,31 @@ export default function SettingsPage() {
         </CardContent>
       </Card>
 
-      {/* Snackbar Alert */}
-      {toast && (
-        <Snackbar
-          open={true}
-          autoHideDuration={2500}
-          onClose={() => setToast(null)}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        >
-          <Alert
-            onClose={() => setToast(null)}
-            severity={toast.type as "success" | "error"}
-            sx={{
-              borderRadius: 2,
-              backgroundColor:
-                toast.type === "success"
-                  ? "rgba(180, 219, 182, 0.8)"
-                  : "rgba(211, 47, 47, 0.8)",
-              color: "#fff",
-              fontWeight: 600,
-              backdropFilter: "blur(6px)",
-            }}
-          >
-            {toast.msg}
-          </Alert>
-        </Snackbar>
-      )}
+     {toast && (
+             <Snackbar
+               open={true}
+               autoHideDuration={2500}
+               onClose={() => setToast(null)}
+               anchorOrigin={{ vertical: "top", horizontal: "center" }}
+             >
+               <Alert
+                 severity={toast.type as "success" | "error"}
+                 sx={{
+                   borderRadius: 2,
+                   backgroundColor:
+                     toast.type === "success"
+                       ? "rgba(74, 162, 78, 0.8)"
+                       : "rgba(211, 47, 47, 0.8)",
+                   color: "#fff",
+                   fontWeight: 600,
+                   backdropFilter: "blur(6px)",
+                 }}
+               >
+                 {toast.msg}
+               </Alert>
+             </Snackbar>
+           )}
+    
     </div>
   );
 }

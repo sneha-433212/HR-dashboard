@@ -83,15 +83,16 @@ export default function EditEmployeeDialog({
     });
   }, [employee]);
 
-  const save = async () => {
-    await upsert.mutateAsync({
-      ...form,
-      tenure_months: form.tenure_months === "" ? null : Number(form.tenure_months),
-      performance: form.performance === "" ? null : Number(form.performance),
-      cv_file: cvFile ?? undefined,
-    } as any);
-    onClose();
-  };
+const save = async () => {
+  await upsert.mutateAsync({
+    ...form,
+    tenure_months: form.tenure_months === "" ? null : Number(form.tenure_months),
+    performance: form.performance === "" ? null : Number(form.performance),
+    cv_file: cvFile ?? employee.cv_url ?? undefined, // ✅ keep existing CV if no new one uploaded
+  } as any);
+  onClose();
+};
+
 
 
   const handleExtract = async () => {

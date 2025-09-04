@@ -5,7 +5,7 @@
 .kpi { display: flex; align-items: center; justify-content: space-between; }
 .kpiValue { font-size: 24px; font-weight: 800; }
 
-/* KPI icon wrapper (circle bg) */
+
 .kpiIconWrapper {
   width: 42px;
   height: 42px;

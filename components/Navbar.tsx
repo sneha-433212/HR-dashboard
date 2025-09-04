@@ -24,15 +24,14 @@ import { supabase } from "../lib/supabaseClient";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import LogoutIcon from "@mui/icons-material/Logout";
-import SettingsIcon from "@mui/icons-material/Settings";
 import PersonIcon from "@mui/icons-material/Person";
 import WorkOutline from "@mui/icons-material/WorkOutline";
 import EventBusyOutlined from "@mui/icons-material/EventBusyOutlined";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack"; 
 
 import { useApplications } from "../hooks/useApplications";
 import { useLeaves } from "../hooks/useLeaves";
-
 
 function stringToColor(string: string) {
   let hash = 0;
@@ -52,6 +51,10 @@ export default function Navbar() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [notifOpen, setNotifOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
+
+
+  const [dismissedApps, setDismissedApps] = useState<string[]>([]);
+  const [dismissedLeaves, setDismissedLeaves] = useState<string[]>([]);
 
   const open = Boolean(anchorEl);
 
@@ -84,7 +87,6 @@ export default function Navbar() {
     };
   }, []);
 
-
   const { data: apps = [] } = useApplications();
   const { data: leaves = [] } = useLeaves();
 
@@ -92,12 +94,15 @@ export default function Navbar() {
     (a) => a.status === "New" || a.status === "Received"
   );
   const newLeaves = (leaves as any[]).filter((l) => l.status === "Pending");
-  const notifCount = newApps.length + newLeaves.length;
+
+  
+  const visibleApps = newApps.filter((a) => !dismissedApps.includes(a.id));
+  const visibleLeaves = newLeaves.filter((l) => !dismissedLeaves.includes(l.id));
+
+  const notifCount = visibleApps.length + visibleLeaves.length;
 
   return (
     <div className={styles.nav}>
-
-
       <div
         className={styles.brand}
         style={{
@@ -109,24 +114,25 @@ export default function Navbar() {
         {user ? "Welcome to Dashboard" : "Dashboard"}
       </div>
 
-
       <div className={styles.actions}>
         {user ? (
           <>
-
+            
             <IconButton onClick={() => setNotifOpen(true)}>
-              <Badge badgeContent={notifCount} color="error">
+              <Badge
+                badgeContent={notifCount}
+                sx={{ "& .MuiBadge-badge": { bgcolor: "#a746a7ff" , color:"white"} }}
+              >
                 <NotificationsNoneIcon />
               </Badge>
             </IconButton>
-            
+
             <Drawer
               anchor="right"
               open={notifOpen}
               onClose={() => setNotifOpen(false)}
               PaperProps={{ sx: { width: 360, p: 2 } }}
             >
-
               <div
                 style={{
                   display: "flex",
@@ -137,8 +143,9 @@ export default function Navbar() {
                 <Typography variant="h6" fontWeight={700}>
                   Notifications
                 </Typography>
+                
                 <IconButton onClick={() => setNotifOpen(false)} size="small">
-                  <CloseIcon />
+                  <ArrowBackIcon />
                 </IconButton>
               </div>
               <Divider sx={{ my: 1.5 }} />
@@ -153,8 +160,22 @@ export default function Navbar() {
               )}
 
               <List>
-                {newApps.map((a: any) => (
-                  <ListItem disablePadding key={a.id}>
+                {visibleApps.map((a: any) => (
+                  <ListItem
+                    disablePadding
+                    key={a.id}
+                    secondaryAction={
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        onClick={() =>
+                          setDismissedApps((prev) => [...prev, a.id])
+                        }
+                      >
+                        <CloseIcon fontSize="small" />
+                      </IconButton>
+                    }
+                  >
                     <ListItemButton
                       onClick={() => {
                         router.push("/recruitment");
@@ -165,16 +186,31 @@ export default function Navbar() {
                         <WorkOutline color="primary" />
                       </ListItemIcon>
                       <ListItemText
-                        primary={`${a.candidate_name} applied for ${a.job?.title || "a job"
-                          }`}
+                        primary={`${a.candidate_name} applied for ${
+                          a.job?.title || "a job"
+                        }`}
                         secondary="New application"
                       />
                     </ListItemButton>
                   </ListItem>
                 ))}
 
-                {newLeaves.map((l: any) => (
-                  <ListItem disablePadding key={l.id}>
+                {visibleLeaves.map((l: any) => (
+                  <ListItem
+                    disablePadding
+                    key={l.id}
+                    secondaryAction={
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        onClick={() =>
+                          setDismissedLeaves((prev) => [...prev, l.id])
+                        }
+                      >
+                        <CloseIcon fontSize="small" />
+                      </IconButton>
+                    }
+                  >
                     <ListItemButton
                       onClick={() => {
                         router.push("/leaves");
@@ -185,8 +221,9 @@ export default function Navbar() {
                         <EventBusyOutlined color="error" />
                       </ListItemIcon>
                       <ListItemText
-                        primary={`${l.employee_name || "Employee"
-                          } requested leave`}
+                        primary={`${
+                          l.employee?.name || "Employee"
+                        } requested for leave`}
                         secondary="Pending approval"
                       />
                     </ListItemButton>
@@ -194,7 +231,6 @@ export default function Navbar() {
                 ))}
               </List>
             </Drawer>
-
 
             <Tooltip title={user.email || "Admin"}>
               <Avatar
@@ -205,9 +241,9 @@ export default function Navbar() {
                   cursor: "pointer",
                   bgcolor: stringToColor(
                     user.user_metadata?.full_name ||
-                    user.user_metadata?.name ||
-                    user.email ||
-                    "U"
+                      user.user_metadata?.name ||
+                      user.email ||
+                      "U"
                   ),
                 }}
                 onClick={handleAvatarClick}
@@ -228,7 +264,6 @@ export default function Navbar() {
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               transformOrigin={{ vertical: "top", horizontal: "right" }}
             >
-
               <MenuItem
                 onClick={() => {
                   handleClose();
@@ -271,3 +306,14 @@ export default function Navbar() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+

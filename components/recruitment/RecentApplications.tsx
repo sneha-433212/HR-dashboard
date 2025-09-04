@@ -126,10 +126,10 @@ export default function RecentApplications() {
       await updateStatus.mutateAsync({ id: current.id, status: s as any });
       setToast({ type: "success", msg: `Status updated to ${s}.` });
 
-     
+
       setCurrent({ ...current, status: s });
 
-      
+
       qc.invalidateQueries({ queryKey: ["applications"] });
     } catch (e: any) {
       setToast({ type: "error", msg: e?.message || "Failed to update status." });
@@ -168,12 +168,19 @@ export default function RecentApplications() {
                               variant="contained"
                               disableElevation
                               sx={{
-                                px: 2.5,
-                                py: 0.8,
-                                fontSize: 13,
-                                fontWeight: 600,
+                                px: 2,
+                                py: 0.5,
+                                fontSize: 14,
+                                fontWeight: 500,
                                 textTransform: "none",
-                              }}
+                                backgroundColor: "#5062a1ff",
+                                color: "#ffffff",
+                                "&:hover": {
+                                  backgroundColor: "#456d8aff",
+                                  color: "#fff",
+                                }
+                              }
+                              }
                               onClick={() => openReview(a)}
                             >
                               Review
@@ -212,7 +219,7 @@ export default function RecentApplications() {
         )}
       </CardContent>
 
-      
+
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)} PaperProps={{ sx: { width: 420 } }}>
         <Box sx={{ p: 2, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <Typography variant="h6" fontWeight={700}>Review Application</Typography>
@@ -263,7 +270,7 @@ export default function RecentApplications() {
                 </Button>
               )}
 
-            
+
               <Stack direction="row" spacing={1} justifyContent="center" mt={2}>
                 <Button
                   variant="outlined"
@@ -301,7 +308,7 @@ export default function RecentApplications() {
         )}
       </Drawer>
 
-      
+
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} maxWidth="sm" fullWidth>
         <DialogTitle>
           Application Details
@@ -324,10 +331,22 @@ export default function RecentApplications() {
                   href={current.resume_url}
                   target="_blank"
                   rel="noreferrer"
-                  sx={{ fontSize: 12, px: 2 }}
+                  sx={{
+                    fontSize: 12,
+                    px: 2,
+                    py: 0.4,
+                    alignSelf: "flex-start",
+                    border: "none",              
+                    boxShadow: "none",           
+                    "&:hover": {
+                      border: "none",            
+                      backgroundColor: "rgba(0,0,0,0.04)", 
+                    },
+                  }}
                 >
                   OPEN CV
                 </Button>
+
               )}
 
               <Button
@@ -353,7 +372,7 @@ export default function RecentApplications() {
         </DialogContent>
       </Dialog>
 
-   
+
       {toast && (
         <Snackbar
           open={true}
